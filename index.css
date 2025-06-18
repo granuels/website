@@ -1,228 +1,120 @@
 @import url('https://fonts.googleapis.com/css?family=Caveat|Righteous&display=swap');
-*{
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
 
-}
-body {
-  background-color: #000;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
-header{
-  background-color: #000;
-}
+html,body{background:#000;overflow-x:hidden;}
 
-.navbar-nav .nav-item:hover .nav-link {
-  color: rgb(45, 237, 11) !important;
-}
+header{background:#000;}
 
-.navbar-nav .nav-link {
-  font-family: 'Red Hat Mono', monospace;
-  font-size: large;
-  color: white;
-}
+.navbar-nav .nav-item:hover .nav-link{color:rgb(45,237,11)!important;}
+.navbar-nav .nav-link{font-family:'Red Hat Mono',monospace;font-size:large;color:#fff;}
 
-a{
-  color: white;
-  text-decoration: none;
+a{color:#fff;text-decoration:none;}
+
+.content{
+  position:absolute;
+  top:40%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  height:130px;
+  overflow:hidden;
+  font:600 35px/40px 'Lato',sans-serif;
+  color:#ecf0f1;
 }
 
-
-.content {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 130px;
-  overflow: hidden;
-  font-family: 'Lato', sans-serif;
-  font-size: 35px;
-  line-height: 40px;
-  color: #ecf0f1;
+.content__container{position:relative;height:40px;overflow:hidden;padding:0 40px;}
+.content__container:before{content:'{';left:0;}
+.content__container:after{content:'}';right:0;}
+.content__container:before,.content__container:after{
+  position:absolute;top:0;font-size:42px;line-height:33px;color:#16a085;
 }
 
-.content__container {
-  font-weight: 600;
-  overflow: hidden;
-  height: 40px;
-  padding: 0 40px;
-  position: relative;
+.content__container__text{float:left;}
+.content__container__list{margin:0;padding-left:110px;list-style:none;text-align:left;animation:change 10s infinite;}
+.content__container__list__item{line-height:40px;margin:0;}
+
+@keyframes change{
+  0%,12.66%,100%{transform:translate3d(0,0,0);}
+  16.66%,29.32%{transform:translate3d(0,-25%,0);}
+  33.32%,45.98%{transform:translate3d(0,-50%,0);}
+  49.98%,62.64%{transform:translate3d(0,-75%,0);}
+  66.64%,79.3%{transform:translate3d(0,-50%,0);}
+  83.3%,95.96%{transform:translate3d(0,-25%,0);}
 }
 
-.content__container:before {
-  content: '{';
-  left: 0;
+.text-container{
+  position:absolute;
+  width:100%;
+  height:80vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:'Raleway',sans-serif;
 }
 
-.content__container:after {
-  content: '}';
-  position: absolute;
-  right: 0;
+.text-container h1{
+  margin:0;
+  font-size:80px;
+  font-weight:700;
+  text-transform:uppercase;
+  text-align:center;
+  color:rgba(225,225,225,.01);
+  background:url("https://media.istockphoto.com/id/185714123/photo/seascape.jpg?s=612x612&w=0&k=20&c=I66jm7oo72ephqL8OHDmDbGk4kg9UMO4XpGny7oSwas=") repeat;
+  -webkit-background-clip:text;
+  animation:animate 15s ease-in-out infinite;
 }
 
-.content__container:after,
-.content__container:before {
-  position: absolute;
-  top: 0;
-  color: #16a085;
-  font-size: 42px;
-  line-height: 33px;
-  /* -webkit-animation-name: opacity;
-  -webkit-animation-duration: 2s;
-  -webkit-animation-iteration-count: infinite;
-  animation-name: opacity;
-  animation-duration: 2s;
-  animation-iteration-count: infinite; */
+@keyframes animate{
+  0%,100%{background-position:left top;}
+  25%{background-position:right bottom;}
+  50%{background-position:left bottom;}
+  75%{background-position:right top;}
 }
 
-.content__container__text {
-  display: inline;
-  float: left;
-  margin: 0;
+.desc{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font:2.7rem 'Caveat',cursive;
+  letter-spacing:5px;
+  margin:0;
+  background:linear-gradient(to right,#c4c4c4,#6a6a6a);
+  -webkit-background-clip:text;
+  color:transparent;
 }
 
-.content__container__list {
-  margin-top: 0;
-  padding-left: 110px;
-  text-align: left;
-  list-style: none;
-  -webkit-animation-name: change;
-  -webkit-animation-duration: 10s;
-  -webkit-animation-iteration-count: infinite;
-  animation-name: change;
-  animation-duration: 10s;
-  animation-iteration-count: infinite;
+.allicons{
+  position:fixed;
+  bottom:20px;
+  left:20px;
 }
 
-.content__container__list__item {
-  line-height: 40px;
-  margin: 0;
+.social-links{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:20px;
 }
 
-@keyframes opacity{
-  0%, 100% { opacity: 0; }
-  50% { opacity: 1; }
+.social-links a{
+  width:40px;
+  height:40px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 
-@keyframes change {
-  0%, 12.66%, 100% { transform: translate3d(0, 0, 0); }
-  16.66%, 29.32% { transform: translate3d(0, -25%, 0); }
-  33.32%, 45.98% { transform: translate3d(0, -50%, 0); }
-  49.98%, 62.64% { transform: translate3d(0, -75%, 0); }
-  66.64%, 79.3% { transform: translate3d(0, -50%, 0); }
-  83.3%, 95.96% { transform: translate3d(0, -25%, 0); }
+.social-links a .glf{font-size:30px;}
+.fa-github:hover{color:rgb(4,148,4);}
+.fa-linkedin:hover{color:#0077b5;}
+.fa-file:hover{color:red;}
+
+@media(max-width:768px){
+  .allicons{left:0;right:0;bottom:20px;display:flex;justify-content:center;}
+  .social-links{flex-direction:row;gap:20px;}
 }
 
-@media (max-width: 600px) {
-
-  .content {
-    top: 35%;
-  }
-  
-  .content__container {
-    margin-top: 1px;
-  }
-
+@media(max-width:600px){
+  .content{top:35%;}
+  .content__container{margin-top:1px;}
 }
-
-  .text-container {
-    position: absolute;
-    font-family: 'Raleway', sans-serif;
-    height: 80vh;
-    width: 99vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .text-container h1{
-    margin: 0;
-    font-size: 80px;
-    color: rgba(225,225,225, .01);
-    background-image: url("https://media.istockphoto.com/id/185714123/photo/seascape.jpg?s=612x612&w=0&k=20&c=I66jm7oo72ephqL8OHDmDbGk4kg9UMO4XpGny7oSwas=");
-    background-repeat: repeat;
-    -webkit-background-clip:text;
-    animation: animate 15s ease-in-out infinite;
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: 700;
-  }
-  
-    @keyframes animate {
-      0%, 100% {
-        background-position: left top;
-      }
-      25%{
-        background-position: right bottom;
-       }
-      50% {
-        background-position: left bottom;
-      }
-      75% {
-        background-position: right top;
-      }   
-  }
-  
-  .desc{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Caveat', cursive;
-    color:transparent;
-    font-size:2.7rem;
-    letter-spacing:5px;
-    margin:0px;
-    background:linear-gradient(to right, #c4c4c4 ,#6a6a6a);
-    -webkit-background-clip: text;  
-  }
-
-  .allicons {
-    padding-top: 34%;
-  }
-  
-  .social-links a {
-    padding-bottom: 70px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    width: 80px;
-    height: 40px;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 50%;
-    box-shadow: 0 0 20px 10px rgba(0,0,0,0.05);
-  }
-  
-  .social-links a .glf {
-    font-size: 30px;
-    line-height: 40px;
-    position: relative;
-  }
-  
-  .fa-github:hover {
-    color: rgb(4, 148, 4);
-  }
-  
-  .fa-linkedin:hover {
-    color: #0077b5;
-  }
-  
-  .fa-file:hover {
-    color: red; 
-  }
-  
-  @media (max-width: 768px) {
-    .social-links {
-      display: flex;
-      justify-content: center;
-      position: absolute;
-      bottom: 20px;
-      left: 0;
-      right: 0;
-    }
-    
-    .social-links a {
-      padding: 0 10px;
-    }
-  }
